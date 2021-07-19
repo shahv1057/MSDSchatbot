@@ -1,0 +1,115 @@
+{
+  "chatbot_data": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey my name is Vatie, nice to meet you :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?",
+        "Hello! I'm Vatie, the MSDS info bot. What can I help you with?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Goodbye! Go Dons!",
+        "Have a nice day, and go Dons!",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you","I appreciate that", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", 
+                    "Of course, your really should be thanking my creators, Catie and Veeral!",
+                    "Any time!", 
+                    "My pleasure", 
+                    "No problem!"]
+    },
+    {
+      "tag": "classes",
+      "patterns": [
+        "Which classes do you offer?",
+        "What courses are in the program?",
+        "Which classes would we have to take?"
+      ],
+      "responses": [
+        "We have classes in statistics, programming, and linear algebra",
+        "Course topics include Python coding, math, and statistics",
+        "Check out our classes in the course catalog"
+      ]
+    },
+    {
+      "tag": "prerequisites",
+      "patterns": [
+        "What are the program prerequisites?",
+        "Do I need to have a background in statistics?",
+        "Is calculus a prerequisite?",
+        "Do I need to have coding experience?",
+        "Is Python knowledge necessary?",
+        "What are the key background requirements?"
+      ],
+      "responses": [
+        "A background in statistics, linear algebra, and Python programming is required",
+        "Applicants must have high grades in prior coursework in probability and statistics, linear algebra, and computer programming",
+        "Typically, though not always, our applicants have studied mathematics, engineering, economics, statistics, or computer science"
+      ]
+    },
+    {
+      "tag": "length",
+      "patterns": [
+        "What is the length of the program?",
+        "How many months long is the Master's program?",
+        "When does the program take place?"
+      ],
+      "responses": [
+        "MSDS is a 12-month accelerated Master's program that starts and ends in July",
+        "A 1 year program starting in July"
+      ]
+    },
+    {
+      "tag": "practicum",
+      "patterns": [
+        "practicum",
+        "internship",
+        "What companies do students intern at?",
+        "How much time do people spend at their internships?",
+        "What companies do students work with for practicum?",
+        "Where do students intern?",
+        "What is practicum?",
+        "Do students need to find their own practicum companies?",
+        "Do students typically get paid by their practicum companies?",
+        "How much time do students spend on practicum?"
+      ],
+      "responses": [
+        "Students work with companies from all industries like Airbnb, Reddit, United Healthcare, and UCSF for 15 hours a week, with the decision to provide compensation for practicum work is up to each company",
+        "Practicums cover numerous industries and mandate 15 hours per week of work. Pay is up to the discretion of the company"
+      ]
+    }, 
+    {
+      "tag": "tuition",
+      "patterns": [
+        "What are financing options?",
+        "What is the total cost of the program?",
+        "How much does it cost?",
+        "Is financial aid available?",
+        "Do you offer scholarship money?" 
+      ],
+      "responses": [
+        "The total cost of the 35-unit program was $51,800 in 2020-2021. We offer a limited number of scholarships. Please see our Financing Your Education page for more information on financing options",
+        "The $50,000+ cost of the program has many financing options. Visit our Financing Your Education page for more information"
+      ]
+    }
+  ]
+}
