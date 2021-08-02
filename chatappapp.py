@@ -75,7 +75,7 @@ def predict_class(sentence, model):
                 return f"{bot_name}: {random.choice(intent['responses'])}"
     # If none of the probs > .75, say "I do not understand"
     else:
-        return f"{bot_name}: I do not understand..."
+        return f"{bot_name}: I do not understand... Maybe try the MSDS <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science\">website</a>?"
 
 
 if __name__ == "__main__":

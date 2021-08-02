@@ -47,7 +47,7 @@
       "responses": [
         "We have classes in statistics, programming, and linear algebra",
         "Course topics include Python coding, math, and statistics",
-        "Check out our classes in the course catalog"
+        "Check out our classes in the <a href=\"course catalog https://catalog.usfca.edu/preview_program.php?catoid=35&poid=34360&returnto=8274\">course catalog</a>."
       ]
     },
     {
@@ -94,7 +94,9 @@
       ],
       "responses": [
         "Students work with companies from all industries like Airbnb, Reddit, United Healthcare, and UCSF for 15 hours a week, with the decision to provide compensation for practicum work is up to each company",
-        "Practicums cover numerous industries and mandate 15 hours per week of work. Pay is up to the discretion of the company"
+        "Practicums cover numerous industries and mandate 15 hours per week of work. Pay is up to the discretion of the company",
+                  "Each year, roughly 60 companies come to pitch their projects/practicum to our students during “Pitch Day” and each student chooses their top 15 projects and companies (past and current partners include those shown below). See <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/practicums\">here</a>.",
+          "Practicum is unique to MSDS and allows students to get hands on expierience in both paid and unpaid internships. For more information, see <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/practicums\">here</a>."
       ]
     }, 
     {
@@ -108,8 +110,30 @@
       ],
       "responses": [
         "The total cost of the 35-unit program was $51,800 in 2020-2021. We offer a limited number of scholarships. Please see our Financing Your Education page for more information on financing options",
-        "The $50,000+ cost of the program has many financing options. Visit our Financing Your Education page for more information"
+        "The $50,000+ cost of the program has many financing options. Visit our <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/financing-your-education\">Financing your Education</a> page for more information"
       ]
-    }
+    },
+    {
+      "tag": "professors",
+      "patterns": [
+        "Who are the professors?",
+        "What are the professors backgrounds?",
+        "Tell me more about the professors?"
+      ],
+      "responses": [
+        "We have many wonderful professors with diverse backgrounds. Please see <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/faculty\">this link</a> for more details on our faculty."
+      ]
+    },
+    {
+      "tag": "students",
+      "patterns": [
+        "Tell me more about the current cohort",
+        "What schools did the current students attend?",
+        "What kind of students are in the program?"
+      ],
+      "responses": [
+        "We have a diverse set of students from many backgrounds ranging from computer science to psychology! Our current cohort is 60% male and 40% female. For a more robust class profile, see the <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/class-profile\">class profile</a> or the <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/our-students\">meet the students</a> page."
+      ]
+    }  
   ]
 }
