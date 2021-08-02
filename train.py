@@ -42,7 +42,7 @@ print(len(all_words), "unique stemmed words:", all_words)
 # create training data
 X_train = []
 y_train = []
-for (pattern_sentence, tag) in xy:
+for (pattern_sentence, tag) in xypairs:
     # X: bag of words for each pattern_sentence
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
@@ -79,9 +79,7 @@ train_loader = DataLoader(dataset=chat_ds,
                           batch_size=batch_size,
                           shuffle=True)
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model = NeuralNet(input_size, hidden_size, output_size)
 
 # Loss and optimizer
 lossFunc = nn.CrossEntropyLoss()
