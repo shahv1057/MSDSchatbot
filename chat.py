@@ -1,5 +1,6 @@
 import random
 import json
+import joblib
 import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
@@ -29,13 +30,13 @@ while True:
     sentence = input("You: ")
     if sentence == "quit":
         break
-    
+
     #preprocess user response
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X).to(device)
-    
+
     # predict category with multi class classification model
     output = model(X)
     _, predicted = torch.max(output, dim=1)
@@ -44,7 +45,7 @@ while True:
 
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
-    
+
     # If highest probability > .75, randomly select message from inputted options
     if prob.item() > 0.75:
         for intent in intents['intents']:
@@ -53,3 +54,4 @@ while True:
     # If none of the probs > .75, say "I do not understand"
     else:
         print(f"{bot_name}: I do not understand...")
+joblib.dump(model, 'model')
