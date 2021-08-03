@@ -12,10 +12,29 @@
     <div class="row">
         <div class="col-md-10 mr-auto ml-auto">
     <h1>MSDS AI ChatBot</h1>
+    <style>
+      h1 {
+        background-color:#04432A;
+        color:#FBAF26;
+        text-align:center;
+        border:2px solid white;
+        font-size: 60px;
+      }
+      body {
+        background-color: #556C25;
+      }
+      p {
+        color:white;
+        font-size: 20px;
+      }
+      a {
+        color:#FBAF26;
+      }
+    </style>
     <form>
         <div id="chatbox">
             <div class="col-md-8 ml-auto mr-auto">
-                <p class="botText"><span>Hi! I'm your bot. My name is Vatie and I am here to answer all of your MSDS questions! <br> If I cannot help, please see the MSDS <a href="https://www.usfca.edu/arts-sciences/graduate-programs/data-science">website</a></span></p>
+                <p class="botText" style="text-align:center;"><span>Hi! I'm your bot. My name is Vatie and I am here to answer all of your MSDS questions! <br> If I cannot help, please see the MSDS <a href="https://www.usfca.edu/arts-sciences/graduate-programs/data-science">website!</a></span></p>
             </div>
         </div>
         <div id="userInput" class="row">
@@ -32,7 +51,7 @@
     $(document).ready(function() {
         $("form").on("submit", function(event) {
             var rawText = $("#text").val();
-            var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+            var userHtml = '<p class="userText"><span> You: ' + rawText + "</span></p>";
             $("#text").val("");
             $("#chatbox").append(userHtml);
             document.getElementById("userInput").scrollIntoView({
