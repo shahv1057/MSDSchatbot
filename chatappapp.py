@@ -16,7 +16,7 @@ bot_name = 'Vatie'
 
 # chat initialization
 with open('msds_chat_data.json', 'r') as json_data:
-    intents = json.load(json_data)
+    chatbot_json = json.load(json_data)
     
 
 FILE = "data.pth"
@@ -42,13 +42,7 @@ def home():
 def chatbot_response():
     msg = request.form["msg"]
     #checks is a user has given a name, in order to give a personalized feedback
-    return  predict_class(msg, model)
-
-
-
-
-
-
+    return predict_class(msg, model)
 
 
 def predict_class(sentence, model):
@@ -70,9 +64,9 @@ def predict_class(sentence, model):
 
     # If highest probability > .75, randomly select message from inputted options
     if prob.item() > 0.75:
-        for intent in intents['chatbot_data']:
-            if tag == intent["tag"]:
-                return f"{bot_name}: {random.choice(intent['responses'])}"
+        for categ in chatbot_json['chatbot_data']:
+            if tag == categ["tag"]:
+                return(f"{bot_name}: {random.choice(categ['responses'])}")
     # If none of the probs > .75, say "I do not understand"
     else:
         return f"{bot_name}: I do not understand... Maybe try the MSDS <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science\">website</a>?"

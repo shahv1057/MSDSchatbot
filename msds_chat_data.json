@@ -42,7 +42,8 @@
       "patterns": [
         "Which classes do you offer?",
         "What courses are in the program?",
-        "Which classes would we have to take?"
+        "Which classes would we have to take?",
+        "What courses should I take?"
       ],
       "responses": [
         "We have classes in statistics, programming, and linear algebra",
@@ -53,11 +54,15 @@
     {
       "tag": "prerequisites",
       "patterns": [
+        "What are prerequisites?",
+        "What knowledge is necessary to join the program?",
         "What are the program prerequisites?",
         "Do I need to have a background in statistics?",
         "Is calculus a prerequisite?",
         "Do I need to have coding experience?",
         "Is Python knowledge necessary?",
+        "Do I need to know SQL?",
+        "Do I have to know how to code?",
         "What are the key background requirements?"
       ],
       "responses": [
@@ -71,7 +76,8 @@
       "patterns": [
         "What is the length of the program?",
         "How many months long is the Master's program?",
-        "When does the program take place?"
+        "When does the program take place?",
+        "How long is the program?"
       ],
       "responses": [
         "MSDS is a 12-month accelerated Master's program that starts and ends in July",
@@ -106,7 +112,9 @@
         "What is the total cost of the program?",
         "How much does it cost?",
         "Is financial aid available?",
-        "Do you offer scholarship money?" 
+        "Do you offer scholarship money?",
+        "What is the cost per semester?",
+        "How much is tuition?"
       ],
       "responses": [
         "The total cost of the 35-unit program was $51,800 in 2020-2021. We offer a limited number of scholarships. Please see our Financing Your Education page for more information on financing options",
@@ -129,7 +137,9 @@
       "patterns": [
         "Tell me more about the current cohort",
         "What schools did the current students attend?",
-        "What kind of students are in the program?"
+        "What kind of students are in the program?",
+        "What types of student come to the program?",
+        "What is the background of current students?"
       ],
       "responses": [
         "We have a diverse set of students from many backgrounds ranging from computer science to psychology! Our current cohort is 60% male and 40% female. For a more robust class profile, see the <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/class-profile\">class profile</a> or the <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science/our-students\">meet the students</a> page."

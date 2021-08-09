@@ -8,7 +8,7 @@ from nltk_utils import bag_of_words, tokenize
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 with open('msds_chat_data.json', 'r') as json_data:
-    intents = json.load(json_data)
+    chatbot_json = json.load(json_data)
 
 FILE = "data.pth"
 data = torch.load(FILE)
@@ -48,9 +48,9 @@ while True:
 
     # If highest probability > .75, randomly select message from inputted options
     if prob.item() > 0.75:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+        for categ in chatbot_json['chatbot_data']:
+            if tag == categ["tag"]:
+                print(f"{bot_name}: {random.choice(categ['responses'])}")
     # If none of the probs > .75, say "I do not understand"
     else:
         print(f"{bot_name}: I do not understand...")

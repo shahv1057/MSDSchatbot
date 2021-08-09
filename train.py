@@ -1,6 +1,7 @@
 import numpy as np
 import random
 import json
+import joblib
 
 import torch
 import torch.nn as nn
@@ -9,14 +10,14 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
-with open('msds_chat_data.json', 'r') as f:
-    msds_chat_data = json.load(f)
+with open('msds_chat_data.json', 'r') as json_data:
+    chatbot_json = json.load(json_data)
 
 all_words = []
 tags = []
 xypairs = []
 # loop through each category 
-for category in msds_chat_data['chatbot_data']:
+for category in chatbot_json['chatbot_data']:
     tag = category['tag']
     # add to tag list
     tags.append(tag)
@@ -119,6 +120,7 @@ data = {
 
 FILE = "data.pth"
 torch.save(data, FILE)
+joblib.dump(model, 'model')
 
 print(f'Completed training chatbot model. File saved to {FILE}')
 
