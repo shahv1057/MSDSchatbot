@@ -6,12 +6,29 @@ import joblib
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-
-from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
+
+import nltk
+from nltk.stem.porter import PorterStemmer
 
 with open('data/msds_chat_data.json', 'r') as json_data:
     chatbot_json = json.load(json_data)
+    
+def bag_of_words(tokenized_sentence, words):
+    """
+    Return bag of words array for each sentence given a vocabulary set
+    """
+    # stem each word
+    stemmer = PorterStemmer()   
+    sentence_words = [stemmer.stem(word.lower()) for word in tokenized_sentence]
+    
+    # initialize bag with 0 for each word
+    bag = np.zeros(len(words), dtype=np.float32)
+    for idx, w in enumerate(words):
+        if w in sentence_words: 
+            bag[idx] = 1
+            
+    return bag
 
 all_words = []
 tags = []
@@ -23,14 +40,14 @@ for category in chatbot_json['chatbot_data']:
     tags.append(tag)
     for pattern in category['patterns']:
         # tokenize each word in the sentence and then add to words list
-        w = tokenize(pattern)
+        w = nltk.word_tokenize(pattern)
         all_words.extend(w)
         # add to xy pair
         xypairs.append((w, tag))
 
 # stem and lower each word
 ignore_words = ['?', '.', '!']
-all_words = [stem(w) for w in all_words if w not in ignore_words]
+all_words = [PorterStemmer().stem(w.lower()) for w in all_words if w not in ignore_words]
 
 # remove duplicates and sort
 all_words = sorted(set(all_words))
@@ -120,7 +137,7 @@ data = {
 
 FILE = "data/data.pth"
 torch.save(data, FILE)
-joblib.dump(model, 'model')
+joblib.dump(model, 'code/model')
 
 print(f'Completed training chatbot model. File saved to {FILE}')
 
