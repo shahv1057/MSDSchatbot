@@ -15,5 +15,4 @@ class NeuralNet(nn.Module):
         x = self.linear2(x)
         x = self.relu(x)
         x = self.linear3(x)
-        # no activation and no softmax at the end
         return x

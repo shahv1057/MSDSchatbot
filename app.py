@@ -5,21 +5,35 @@ import json
 from flask import Flask, render_template, request
 from flask_ngrok import run_with_ngrok
 import nltk
+from nltk.stem.porter import PorterStemmer
 from keras.models import load_model
-from nltk.stem import WordNetLemmatizer
 import joblib
 import torch
-from nltk_utils import bag_of_words, tokenize
 
-lemmatizer = WordNetLemmatizer()
+# nltk.download('punkt')
+
+def bag_of_words(tokenized_sentence, words):
+    """
+    Return bag of words array for each sentence given a vocabulary set
+    """
+    # stem each word
+    stemmer = PorterStemmer()   
+    sentence_words = [stemmer.stem(word.lower()) for word in tokenized_sentence]
+    
+    # initialize bag with 0 for each word
+    bag = np.zeros(len(words), dtype=np.float32)
+    for idx, w in enumerate(words):
+        if w in sentence_words: 
+            bag[idx] = 1
+            
+    return bag
+
 bot_name = 'Vatie'
 
-# chat initialization
-with open('msds_chat_data.json', 'r') as json_data:
-    chatbot_json = json.load(json_data)
-    
-
-FILE = "data.pth"
+# load chat data and trained model
+with open('data/msds_chat_data.json', 'r') as json_data:
+    chatbot_json = json.load(json_data)    
+FILE = "data/data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
@@ -47,7 +61,7 @@ def chatbot_response():
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
-    sentence = tokenize(sentence)
+    sentence = nltk.word_tokenize(sentence)
     X = bag_of_words(sentence, words)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X)
@@ -56,9 +70,7 @@ def predict_class(sentence, model):
     output = model(X)
     _, predicted = torch.max(output, dim=1)
 
-    tag = classes[predicted.item()]
-    # sort by strength of probability
-    
+    tag = classes[predicted.item()]    
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
 
@@ -67,7 +79,8 @@ def predict_class(sentence, model):
         for categ in chatbot_json['chatbot_data']:
             if tag == categ["tag"]:
                 return(f"{bot_name}: {random.choice(categ['responses'])}")
-    # If none of the probs > .75, say "I do not understand"
+            
+    # If none of the probs > .75, say standard "I do not understand" response
     else:
         return f"{bot_name}: I do not understand... Maybe try the MSDS <a href=\"https://www.usfca.edu/arts-sciences/graduate-programs/data-science\">website</a>?"
 

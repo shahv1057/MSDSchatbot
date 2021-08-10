@@ -10,7 +10,7 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
-with open('msds_chat_data.json', 'r') as json_data:
+with open('data/msds_chat_data.json', 'r') as json_data:
     chatbot_json = json.load(json_data)
 
 all_words = []
@@ -118,7 +118,7 @@ data = {
 "tags": tags
 }
 
-FILE = "data.pth"
+FILE = "data/data.pth"
 torch.save(data, FILE)
 joblib.dump(model, 'model')
 

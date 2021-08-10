@@ -3,14 +3,30 @@ import json
 import joblib
 import torch
 from model import NeuralNet
-from nltk_utils import bag_of_words, tokenize
+import nltk
+from nltk.stem.porter import PorterStemmer
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('msds_chat_data.json', 'r') as json_data:
+def bag_of_words(tokenized_sentence, words):
+    """
+    Return bag of words array for each sentence given a vocabulary set
+    """
+    # stem each word
+    stemmer = PorterStemmer()   
+    sentence_words = [stemmer.stem(word.lower()) for word in tokenized_sentence]
+    # initialize bag with 0 for each word
+    bag = np.zeros(len(words), dtype=np.float32)
+    for idx, w in enumerate(words):
+        if w in sentence_words: 
+            bag[idx] = 1
+
+    return bag
+
+with open('data/msds_chat_data.json', 'r') as json_data:
     chatbot_json = json.load(json_data)
 
-FILE = "data.pth"
+FILE = "data/data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
@@ -54,4 +70,5 @@ while True:
     # If none of the probs > .75, say "I do not understand"
     else:
         print(f"{bot_name}: I do not understand...")
-joblib.dump(model, 'model')
+        
+joblib.dump(model, 'code/model')
