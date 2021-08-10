@@ -13,7 +13,7 @@ To develop the MSDS Chatbot, please clone our repository, create a virtual envir
 ```
 $ git clone https://github.com/shahv1057/MSDSchatbot.git
 $ python -m venv chatbot-env
-$ source tutorial-env/bin/activate
+$ source chatbot-env/bin/activate
 $ python -m pip install -r requirements.txt
 ```
 
