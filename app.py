@@ -9,6 +9,7 @@ from nltk.stem.porter import PorterStemmer
 from keras.models import load_model
 import joblib
 import torch
+from model import NeuralNet
 
 # nltk.download('punkt')
 
@@ -32,7 +33,8 @@ bot_name = 'Vatie'
 
 # load chat data and trained model
 with open('data/msds_chat_data.json', 'r') as json_data:
-    chatbot_json = json.load(json_data)    
+    chatbot_json = json.load(json_data)
+    
 FILE = "data/data.pth"
 data = torch.load(FILE)
 
@@ -42,8 +44,10 @@ output_size = data["output_size"]
 words = data['all_words']
 classes = data['tags']
 model_state = data["model_state"]
-model = joblib.load("model")
 
+model = NeuralNet(input_size, hidden_size, output_size)
+model.load_state_dict(model_state)
+model.eval()
 
 app = Flask(__name__)
 

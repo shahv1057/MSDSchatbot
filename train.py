@@ -55,7 +55,7 @@ tags = sorted(set(tags))
 
 print(len(xypairs), "patterns")
 print(len(tags), "tags:", tags)
-print(len(all_words), "unique stemmed words:", all_words)
+print(len(all_words), "unique stemmed words")
 
 # create training data
 X_train = []
@@ -77,7 +77,6 @@ learning_rate = 0.001
 input_size = len(X_train[0])
 hidden_size = 8
 output_size = len(tags)
-print(input_size, output_size)
 
 class ChatDataset(Dataset):
 
@@ -137,7 +136,6 @@ data = {
 
 FILE = "data/data.pth"
 torch.save(data, FILE)
-joblib.dump(model, 'code/model')
 
 print(f'Completed training chatbot model. File saved to {FILE}')
 

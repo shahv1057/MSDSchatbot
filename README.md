@@ -29,7 +29,7 @@ $ python
 ## Usage
 
 ### 1) Train the model
-  - Run `python code/train.py` in your terminal
+  - Run `python train.py` in your terminal
 
 ### 2a) Flask Web Application Chatbot
   - Run `python app.py` in your terminal
