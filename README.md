@@ -41,3 +41,13 @@ $ python
   - Enter your messages and recieve answers directly in your terminal
 
 
+
+## The Data 
+
+The data used to train this model was hand curated by Veeral and Catie. This inlcuded coming up with potential question categories, questions for the categories and responses that the chatbot would return. The dataset is included in the repository.
+
+<img width="650" alt="data" src="https://user-images.githubusercontent.com/67168388/128942045-bc00d0a1-1585-420e-9d09-5ffca62872ab.png">
+
+
+
+
