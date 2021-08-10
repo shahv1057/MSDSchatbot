@@ -1,6 +1,6 @@
 # PyTorch Chatbot for the USF Master's in Data Science program
 
-We built a chatbot that we tuned to apply to MSDS based questions for current students, prospective students, and just about anyone interested in the details about the 12-month accelerated Data Science program. This bot is trained with a 3-Layer PyTorch Neural Network with ReLU activation. The bot is then surfaced on a Flask web application for interactive usage. Ultimately, we hope to integrate our bot as an automated tool on the USF MSDS website (particularly the FAQ page) so visitors can get a chatty alternative to answering questions on topics like courses, professors, tuition, practicum, and more about the MSDS program!
+We built a chatbot that we tuned to apply to MSDS based questions for current students, prospective students, and just about anyone interested in the details about the 12-month accelerated Data Science program. This bot is trained with a [3-Layer PyTorch Neural Network with ReLU activation](model.py). The bot is then surfaced on a Flask web application for interactive usage. Ultimately, we hope to integrate our bot as an automated tool on the USF MSDS website (particularly the FAQ page) so visitors can get a chatty alternative to answering questions on topics like courses, professors, tuition, practicum, and more about the MSDS program!
 
 Keep reading to train, develop, and surface our chatbot locally!
 
