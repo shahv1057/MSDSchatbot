@@ -22,12 +22,17 @@ $ python
 
 ## Usage
 
-### Web Application Chatbot
+### 1) Train the model
+  - `python code/train.py`
+
+### 2a) Flask Web Application Chatbot
   - git clone the repo
   - run `python app.py` in your terminal
   - open http://127.0.0.1:5000 in your favorite browser!
 
-### Terminal Chatbot
+### 2b) Terminal Chatbot
   - git clone the repo
   - run `python chat.py` in your terminal
   - enter your messages and recieve answers directly in your terminal
+
+
