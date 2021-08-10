@@ -21,6 +21,7 @@ For installation of PyTorch see [official website](https://pytorch.org/).
 
 You also need to download the `nltk` punkt package:
 ```
+$ pip install nltk
 $ python
 >>> import nltk
 >>> nltk.download('punkt')
