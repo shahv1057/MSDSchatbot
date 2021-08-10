@@ -6,7 +6,6 @@ from flask import Flask, render_template, request
 from flask_ngrok import run_with_ngrok
 import nltk
 from nltk.stem.porter import PorterStemmer
-from keras.models import load_model
 import joblib
 import torch
 from model import NeuralNet

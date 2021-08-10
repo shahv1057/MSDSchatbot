@@ -2,6 +2,7 @@ import random
 import json
 import joblib
 import torch
+import numpy as np
 from model import NeuralNet
 import nltk
 from nltk.stem.porter import PorterStemmer
@@ -32,7 +33,7 @@ data = torch.load(FILE)
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
 output_size = data["output_size"]
-all_words = data['all_words']
+words = data['all_words']
 tags = data['tags']
 model_state = data["model_state"]
 
@@ -48,10 +49,10 @@ while True:
         break
 
     #preprocess user response
-    sentence = tokenize(sentence)
-    X = bag_of_words(sentence, all_words)
+    sentence = nltk.word_tokenize(sentence)
+    X = bag_of_words(sentence, words)
     X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+    X = torch.from_numpy(X)
 
     # predict category with multi class classification model
     output = model(X)
