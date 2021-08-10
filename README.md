@@ -1,6 +1,7 @@
 # PyTorch MSDS Program Chatbox 
 
 To see our chatbot in action follow these steps:
+
   a) To work with our flask app: 
   - git clone the repo
   - run "python chatappapp.py" in your terminal
