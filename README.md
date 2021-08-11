@@ -48,6 +48,12 @@ The data used to train this model was hand curated by Veeral and Catie. This inl
 
 <img width="650" alt="data" src="https://user-images.githubusercontent.com/67168388/128942045-bc00d0a1-1585-420e-9d09-5ffca62872ab.png">
 
+## How it Works
 
+Here is a quick summary of the organization of this repository, what different scripts and files do, and how it comes together to create the MSDS chatbot:
+
+- [train.py](train.py) creates a stemmed and lowercased Bag-of-Words matrix representation using our [chatbot data](data/msds_chat_data.json). It then uses that data matrix and corresponding category labels from the data to train the 3-layer PyTorch Neural Network model from [model.py](model.py). The model parameters and details are then saved [here](data/data.pth).
+- [app.py](app.py) creates a Flask app that inputs user questions, preproccesses them the same way as [train.py](train.py), and then predicts class of response using the [saved model](data/data.pth). The app chatbot then responds to the user with one of the responses indicated for that category in the data.
+- [chat.py](chat.py) opens a Terminal chatbot that works the same way as the Flask app, just in the Terminal
 
 
