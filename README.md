@@ -56,4 +56,15 @@ Here is a quick summary of the organization of this repository, what different s
 - [app.py](app.py) creates a Flask app that inputs user questions, preproccesses them the same way as [train.py](train.py), and then predicts class of response using the [saved model](data/data.pth). The app chatbot then responds to the user with one of the responses indicated for that category in the data.
 - [chat.py](chat.py) opens a Terminal chatbot that works the same way as the Flask app, just in the Terminal
 
+## What's Next? 
+
+If we were to continue to work on this project, some future steps could be:
+-  Expanding the dataset so we have more complex questions to train on
+-  Try a transformer as our model to handle more complex questions  (DialoGPT - HuggingFace transformer trained for conversational dialogue)
+-  Integrate our chatbot into the existing MSDS website 
+-  Multilabel classification to answer more complex questions
+  - i.e. if someone asks about tuitiona dn racticum in the same question 
+
+
+### Contributers: Catie Cronister and Veeral Shah
 
